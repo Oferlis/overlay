@@ -4,12 +4,13 @@ import { fetchPackageInfo } from './content-events';
 import { urlParsers } from './registry/python';
 
 const addPackageReport = (packageID) => {
+  console.log('bla');
   const packageReport = document.createElement('overlay-package-report');
   packageReport.setAttribute('package-type', packageID.type);
   packageReport.setAttribute('package-name', packageID.name);
   packageReport.setAttribute('stylesheet-url', browser.runtime.getURL('custom-elements.css'));
 
-  const sidebar = document.querySelector('.vertical-tabs__tabs');
+  const sidebar = document.querySelector('.sidebar-sticky');
   const sidebarSection = sidebar?.querySelectorAll('.sidebar-section')[1];
   if (!sidebarSection) {
     console.log('No side section found (parent of .github-repo-info)');
@@ -26,7 +27,6 @@ mountContentScript(async () => {
     console.log('No package found', packageId);
     return;
   }
-  console.log('package id =', packageId);
 
   addPackageReport(packageId);
   fetchPackageInfo(packageId);

@@ -18,6 +18,10 @@
     {
       "matches": ["*://pypi.org/project/*"],
       "js": ["content.pypi.js"]
+    },
+    {
+      "matches": ["*://*.readthedocs.io/*"],
+      "js": ["content.readthedocs.js"]
     }
   ],
   "background": {
